@@ -1,0 +1,51 @@
+query {
+  viewcomment(taskId:2){
+    taskId
+    description
+    }
+  }
+
+mutation {
+  addComment(taskId: 2, commentBy: 3, description: "My new task is great", date: "2019-08-12") {
+    taskId
+    commentBy
+    description
+    date
+  }
+}
+
+query {
+  usertask(assignedTo:3){
+    id
+    taskName
+    status
+    assignedTo
+    }
+  }
+
+mutation {
+  createTask(taskName: "Test 6", taskDescription: "Patodi", startDate: "2018-03-12", endDate: "2019-08-12", assignedBy:1,assignedTo:3, status:0) {
+  		taskName
+      taskDescription
+      startDate
+      endDate
+      assignedBy {
+        id
+      }
+      assignedTo {
+        id
+      }
+    	status
+
+  }
+}
+
+mutation {
+  updateTask(id: 4, assigned_to:3) {
+      obj {
+    	id
+      taskName
+      status
+   }
+  }
+}
